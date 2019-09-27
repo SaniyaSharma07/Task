@@ -1,5 +1,7 @@
+
 FROM jenkins/jenkins:lts
 USER root
+
 FROM python:alpine3.6
 
 # RUN apk add install -y git
