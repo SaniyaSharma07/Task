@@ -3,7 +3,7 @@ FROM python:alpine3.6
 # RUN apk add install -y git
 RUN apk add --update && apk add -y git
 
-COPY innote-backend/ /innote/
+COPY Task/ /innote/
 
 RUN apk add --no-cache gcc
 
@@ -23,12 +23,3 @@ RUN apk add --no-cache --virtual build-deps \
 
 WORKDIR innote/
 RUN ls
-RUN pip install --upgrade pip
-
-RUN pip install -r requirements.txt
-
-RUN mkdir -p /var/log/innote_logs
-
-RUN chmod +x start.sh
-
-RUN chmod +x celery_start.sh
