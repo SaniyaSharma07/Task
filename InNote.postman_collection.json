@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "20b00217-050b-4a85-90e2-45407f052e81",
+		"name": "InNote",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "patient_referrals",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8001/innote/referral_management/patients/PA2345/referrals/",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"innote",
+						"referral_management",
+						"patients",
+						"PA2345",
+						"referrals",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "provider_referrals",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8001/innote/referral_management/providers/99999/referrals/?type=outgoing",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"innote",
+						"referral_management",
+						"providers",
+						"99999",
+						"referrals",
+						""
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "outgoing"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_referral",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n \t\"speciality\":\"ICSJ\",\n    \"status\":\"draft\",\n    \"referringProvider\":{\n        \"npi\": \"99999\",\n        \"firstName\": \"Saniya\",\n        \"lastName\": \"Sharma\",\n        \"contactDetails\" : {\n            \"phone\": \"7509182322\",\n            \"email\": \"abc@gmail.com\"\n        }\n    },\n    \"attachments\": \n        {\n            \"fileName\":\"firstfile\",\n            \"link\":\"/a/b\"\n        }\n    ,\n    \"selectedInsurance\" :{\n        \"payer\":\"Atena\",\n        \"payerId\":\"\",\n        \"planId\":\"\",\n        \"insurancePlan\":[\"gold\",\"silver\"]\n    },\n    \"selectedClinic\" :\"fortis\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8001/innote/referral_management/patients/PA2345/referrals/",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"innote",
+						"referral_management",
+						"patients",
+						"PA2345",
+						"referrals",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search_speciality",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8001/innote/referral_management/speciality/_search/?name=Internal Medicine",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"innote",
+						"referral_management",
+						"speciality",
+						"_search",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Internal Medicine"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
